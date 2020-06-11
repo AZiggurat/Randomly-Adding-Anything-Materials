@@ -15,6 +15,10 @@ public enum MaterialEffects {
         element.getAsJsonObject().addProperty("chance", Rands.randIntRange(2, 8));
     })),
     EFFECT(ItemEffectHandler::statusEffectForTarget, (element -> {
+        /*
+        ArrayList<> ModifiedList = new ArrayList<>(Registry.STATUS_EFFECT.getIds());
+        ModifiedList.addAll(additionalEffects);
+        */
         element.getAsJsonObject().addProperty("type", Rands.list(new ArrayList<>(Registry.STATUS_EFFECT.getIds())).toString());
         element.getAsJsonObject().addProperty("duration", Rands.randIntRange(5, 15));
         element.getAsJsonObject().addProperty("amplifier", Rands.randIntRange(0, 2));
